@@ -1,0 +1,587 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+html{
+    scroll-behavior:smooth;
+}
+/* CSS Header */
+header{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8);
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position:fixed;
+    top: 0;
+    z-index: 999;
+    width: 95%;
+    margin: 10px;
+    border-radius: 5px;
+}
+.header-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-text{
+    color:#2250d5;
+}
+.header-span{
+    font-size:  26px;
+    color:black;
+    font-weight: 600;
+    /* text-shadow:1px 1px 2px #000; */
+}
+/* End CSS Header */
+/* CSS Nav */
+.nav-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-list-item{
+    padding: 20px;
+}
+.nav-list-item a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    position: relative;
+    padding:5px 0;
+    color: black;
+}
+.nav-list-item a::before{
+    content: "";
+    background-color: #2250d5;
+    width: 0%;
+    height: 3px;
+    position: absolute;
+    bottom: -10px;
+    transition: 0.3s;
+}
+.nav-list-item:hover >a{
+    color: gray;
+    transition: 0.3s;
+}
+.nav-list-item:hover >a::before{
+    transition: 0.3s;
+    width: 100%;
+}
+/* End CSS Nav */
+/* CSS Nav Animation */
+.nav-responsive{
+    display: none;
+}
+.nav-responsive-item{
+    width: 40px;
+    height: 2px;
+    background-color: black;
+    margin: 10px;
+    padding: 2px;
+    transition: 0.5s;
+    opacity: 1;
+}
+.nav-responsive.open .nav-responsive-item:first-child{
+    position: relative;
+    top:14px;
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.nav-responsive.open .nav-responsive-item:nth-child(2){
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.1s;
+}
+.nav-responsive.open .nav-responsive-item:last-child{
+    position: relative;
+    bottom: 15px;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+}
+.nav-responsive.close .nav-responsive-item:first-child{
+    position: relative;
+    top:0;
+    transform: rotate(0);
+    transition: 0.5s;
+}
+.nav-responsive.close .nav-responsive-item:nth-child(2){
+    visibility: visible;
+    opacity: 1;
+    transition: 0.1s;
+}
+.nav-responsive.close .nav-responsive-item:last-child{
+    position: relative;
+    bottom: 0;
+    transform: rotate(0);
+    transition: 0.5s;
+}
+/* End CSS Animation */
+
+/* Responsive Nav */
+@media (max-width:768px){
+    .content-nav{
+        display: none;
+    }
+    .nav-responsive{
+        display: block;
+    }
+}
+.content-nav-resp{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color:rgba(236, 236, 255, 0.8);
+}
+.nav-list-resp{
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+/* End Responsive Nav */
+
+main{
+    margin-top: 80px;
+    width: 100%;
+}
+/* CSS Home Content */
+.home-container{
+    min-height:700px;
+    width: 100%;
+    background-color: rgba(236, 236, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 95%;
+    min-height: 600px;
+}
+.home-content-left{
+    width: 600px;
+    min-height: 300px;
+    margin: 5px;
+    padding:5px;
+}
+.h-left-name h1{
+    color: black;
+    font-weight:700;
+    padding: 30px 0;
+}
+.h-left-name h1 span{
+    color: #2250d5;
+}
+.h-left-specialized{
+    color: #475568;
+    padding: 10px 0;
+}
+.h-left-description{
+    color: #475568;
+    font-weight: 500;
+}
+.h-left-contact{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.h-left-contact button{
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 8px 15px;
+    margin: 0 20px 0 0;
+}
+.h-left-contact a:first-child button{
+    background-color: #2250d5;
+    color: white;
+}
+.h-left-contact a:last-child button{
+    color: #2250d5;
+}
+.home-content-right{
+    width: 40vw; /* 40% chiều rộng màn hình */
+    height: 40vw;
+    max-width: 450px;
+    max-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    position: relative;
+}
+.h-right-image{
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.h-right-image img {
+    width: 85%;
+    border-radius: 50%; /* hình tròn */
+    display: block;
+    z-index: 2;
+    position: relative; /* để nổi lên trên các circle */
+}
+.h-right-image-circle div {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+}
+.img-circle-1 {
+    width: 100%;
+    height: 105%;
+    border: 5px solid rgba(0, 255, 255, 0.5);
+    animation: rotate 10s linear infinite;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);;
+}
+.img-circle-2 {
+    width: 95%;
+    height: 100%;
+    border: 5px solid rgba(255, 0, 255, 0.3);
+    animation: rotateReverse 15s linear infinite;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+}
+.img-circle-3 {
+    width: 90%;
+    height: 95%;
+    border: 5px solid rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+}
+@keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg);}
+    100% { transform: translate(-50%, -50%) rotate(360deg);}
+}
+@keyframes rotateReverse {
+    0% { transform: translate(-50%, -50%) rotate(0deg);}
+    100% { transform: translate(-50%, -50%) rotate(-360deg);}
+}
+
+/* CSS About Me Content */
+.aboutme{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.aboutme-container{
+    min-height: 700px;
+    width: 95%;
+    padding:20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px #475568;
+}
+.about-title{
+    margin: 30px;
+    position: relative;
+}
+.about-title::after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 8%;
+    width: 150px;
+    height: 5px;
+    background-color:#2250d5;
+    box-shadow: 1px 0 2px #2250d5; 
+    border-radius: 5px;
+}
+.aboutme-container h1{
+    font-weight: 700;
+}
+.about-content{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.about-content-left{
+    max-width: 40%;
+    padding: 30px;
+}
+.a-left-image img{
+    max-width: 100%;
+    border-radius: 30% 50% 0% 30%;
+    box-shadow: 1px 3px 10px #475568;
+}
+.a-right-title::after{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 5px;
+    background-color: #2250d5;
+    border-radius: 5px;
+}
+.a-right-paragraph{
+    font-size:18px;
+    max-width: 650px;
+    padding: 20px 0;
+}
+.a-education-achivements{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+progress {
+  /* Kích thước và hình dáng */
+  width: 100%;
+  height: 8px;
+  /* border: 1px solid #2250d5; Xanh lá đậm */
+  border-radius: 8px;
+  background-color: #e2e8f0 ; /* Phần chưa đạt */
+  appearance: none;
+  display: block;
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #2250d5;
+  border-radius: 8px;
+}
+
+progress::-moz-progress-bar {
+  background-color: #2250d5;
+  border-radius: 8px;
+}
+
+/* CSS Skill */
+.skill{
+    display: flex;
+    justify-content: center;
+}
+.skill-container{
+    min-height: 700px;
+    width: 100%;
+    background-color: rgba(230, 255, 245, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.skill-content{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center; /* để đẹp */
+    margin: 20px;
+}
+.skill-title h1{
+    font-weight: 700;
+}
+.skill-title::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color:#2250d5;
+    box-shadow: 1px 0 2px #2250d5; 
+    border-radius: 5px;
+}
+.skill-card{
+    width: 300px;
+    min-height: 300px;
+    flex: 1 1 300px; /* grow shrink basis */
+    min-width: 300px; /* tối thiểu 300px */
+    text-align: center;
+    font-size: 2rem;
+    padding:20px;
+    box-shadow: 1px 1px 4px #475568;
+    border-radius: 10px;
+    transition: 0.5s;
+    background-color:white;
+}
+.skill-card:hover{
+    box-shadow: 1px 1px 10px #475568;
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+.skill-card-title i{
+    padding: 15px;
+    color: #2250d5;
+    background-color: #dbeafd; 
+    border-radius: 10px;
+    margin: 0 10px;
+}
+.skill-card-title h3{
+    font-weight: 700;
+}
+.skill-card-progress{
+    padding-top: 10px;
+}
+.progress-title h5{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #475568;
+}
+.progress-skill progress{
+    margin-bottom: 20px;
+}
+
+/* CSS Typical Project */
+/* CSS Skill */
+.myproject{
+    display: flex;
+    justify-content: center;
+}
+.myproject-container{
+    min-height: 700px;
+    width: 100%;
+    background-color: rgb(239, 245, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.myproject-content{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center; /* để đẹp */
+    margin: 20px;
+}
+.myproject-title h1{
+    font-weight: 700;
+}
+.myproject-title::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color:#2250d5;
+    box-shadow: 1px 0 2px #2250d5; 
+    border-radius: 5px;
+}
+.project-card{
+    max-width: 260px;
+    min-height: 360px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #475568;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: 0.5s ease;
+}
+.project-card:hover{
+    transform: translateY(-5px);
+    transition: 0.5s ease;
+}
+.project-card a{
+    text-decoration: none;
+    color: #000;
+}
+.p-card-banner img{
+    width: 230px;
+    border-radius: 5px;
+}
+.p-card-content h5{
+    font-weight: 700;
+    padding: 10px 0;
+    text-align: justify;
+}
+.p-card-content p{
+    color: #475568;
+}
+.p-card-tag{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.card-tag{
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+.tag-nodejs{
+    background-color:rgba(166, 255, 197, 1);
+    color: green;
+}
+.tag-mongo{
+    background-color: rgba(224, 195, 255, 1);
+    color: blueviolet;
+}
+
+/* CSS Contact me  */
+.contact{
+    display: flex;
+    justify-content: center;
+}
+.contact-container{
+    min-height: 200px;
+    width: 100%;
+    background-color: rgb(255, 255, 239);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contact-content{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center; /* để đẹp */
+    margin: 20px;
+}
+.contact-title h1{
+    font-weight: 700;
+}
+.contact-title::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color:#2250d5;
+    box-shadow: 1px 0 2px #2250d5; 
+    border-radius: 5px;
+}
+.contact-content a{
+    text-decoration: none;
+}
+/* CSS footer */
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+    background-color: #475568;
+    text-align: center;
+    padding:5px 0;
+}
+footer p{
+    margin: 0;
+}
